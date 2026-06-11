@@ -20,5 +20,6 @@ int main() {
     adicionar_contato(&agenda, outro);
 
     listar_contato(&agenda);
-}
 
+    return 0;
+}

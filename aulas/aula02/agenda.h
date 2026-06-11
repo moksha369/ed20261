@@ -5,16 +5,14 @@
 
 typedef struct contato_t {
     char nome[101];
-    char telefone[61];
+    char telefone[21];
 } Contato;
 
 typedef struct agenda_t {
     Contato contatos[LIMITE];
     int tamanho;
     int quantidade;
-    
 } Agenda;
-
 
 Agenda criar_agenda(int tamanho);
 void adicionar_contato(Agenda *agenda, Contato contato);
@@ -24,5 +22,4 @@ void desbloquear_contato(Agenda *agenda, Contato contato);
 void editar_contato(Agenda *agenda, Contato contato);
 void listar_contato(Agenda *agenda);
 
-
-#endif 
+#endif

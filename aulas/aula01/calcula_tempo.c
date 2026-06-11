@@ -1,44 +1,52 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-int main(){
+int main()
+{
     // ligou o cronometro
     clock_t tempo_inicial = clock();
 
-    int soma = 10 + 20;
+    // O(1)
+    long int soma = 10 + 20; 
 
     // desligou o cronometro
     clock_t tempo_final = clock();
 
-    double duracao = (double)(tempo_final - tempo_inicial) / CLOCKS_PER_SEC;
+    float duracao = (float)(tempo_final - tempo_inicial) / CLOCKS_PER_SEC;
 
-    printf("O tempo de execucao foi %.5f seg", duracao);
+    printf("O tempo de execucao foi %.5f seg\n", duracao);
 
     tempo_inicial = clock();
 
-    for(int i=0; i<1000000; i++){
+     // O(n)
+    for (long int i = 0; i < 10000000000L; i++)
+    {
         soma = soma + 1;
     }
 
     tempo_final = clock();
 
-    duracao = (double)(tempo_final - tempo_inicial) / CLOCKS_PER_SEC;
+    duracao = (float)(tempo_final - tempo_inicial) / CLOCKS_PER_SEC;
 
-    printf("O tempo de execucao foi %.5f seg", duracao);
+    printf("O tempo de execucao foi %.5f seg\n", duracao);
 
-        tempo_inicial = clock();
+    tempo_inicial = clock();
 
-    for(int i=0; i<1000000; i++){
-        
-        soma = soma + 1;
+    // O(n^2)
+    for (int i = 0; i < 100000; i++)
+    {
+        for (int j = 0; j < 100000; j++)
+        {
+            soma = soma + 1;
+        }
     }
 
     tempo_final = clock();
 
-    duracao = (double)(tempo_final - tempo_inicial) / CLOCKS_PER_SEC;
+    duracao = (float)(tempo_final - tempo_inicial) / CLOCKS_PER_SEC;
 
-    printf("O tempo de execucao foi %.5f seg", duracao);
+    printf("O tempo de execucao foi %.5f seg\n", duracao);
 
     return 0;
 }
